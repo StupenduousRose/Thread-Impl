@@ -1,17 +1,15 @@
 package com.academy.user;
 
 import com.academy.user.greet.Greet;
-import com.academy.user.greet.impl.Afternoon;
 import com.academy.user.greet.impl.Greeting;
 
+import com.academy.user.response.GreetResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class UserApplication implements ApplicationRunner {
@@ -30,7 +28,9 @@ public class UserApplication implements ApplicationRunner {
 	}
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(UserApplication.class, args);
+
 	}
 
 	@Override
@@ -38,6 +38,9 @@ public class UserApplication implements ApplicationRunner {
 		System.out.println(greeting.sayHello("Student"));
 		greet.greeting();
 		System.out.println(appName);
+		GreetResponse response = new GreetResponse();
+		System.out.printf("%s to %s\n", "Hello Babe", response.responseInUpperCase("Hello Babe"));
+		System.out.printf("%s to %s\n", "Hello", response.responseInUpperCase("Hello"));
 
 	}
 
