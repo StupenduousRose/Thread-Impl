@@ -11,6 +11,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 public class UserApplication implements ApplicationRunner {
 	@Autowired
@@ -40,8 +42,9 @@ public class UserApplication implements ApplicationRunner {
 		System.out.println(appName);
 		GreetResponse response = new GreetResponse();
 		System.out.printf("%s to %s\n", "Hello Babe", response.responseInUpperCase("Hello Babe"));
-		System.out.printf("%s to %s\n", "Hello", response.responseInUpperCase("Hello"));
-
+		System.out.printf("%s to %s\n", "Hello", response.responseInLowerCase("Hello"));
+		System.out.println("New Go-home feature by Back-Bone Team at "+ LocalDateTime.now());
+		
 	}
 
 }
